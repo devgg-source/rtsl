@@ -115,7 +115,7 @@ const useStyles = makeStyles((theme) => ({
     minHeight: 420,
   },
   color: {
-    backgroundImage:  "linear-gradient(293.5deg , rgba(181,149,208,1) 3.2%, rgba(251,148,207,1) 9.9%, rgba(181,149,208,1) 22.9%, rgba(251,148,207,1) 36.4%, rgba(181,149,208,1) 50.1%, rgba(251,148,207,1) 61.1%, rgba(181,149,208,1) 71.2%, rgba(251,148,207,1) 84.2%, rgba(181,149,208,1) 92.2% )"
+    backgroundImage:  "radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,229,168,1) 0%, rgba(251,174,222,1) 100.7% )"
   },
   "@keyframes fadeIn": {
     "0%,100%": {
