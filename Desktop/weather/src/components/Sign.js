@@ -30,7 +30,9 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: "100vh"
+    height: "100vh",
+    backgroundImage: "radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,229,168,1) 0%, rgba(251,174,222,1) 100.7% )"
+  
   },
   image: {
     backgroundImage:
@@ -113,9 +115,6 @@ const useStyles = makeStyles((theme) => ({
   },
   someTextField: {
     minHeight: 420,
-  },
-  color: {
-    backgroundImage:  "radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,229,168,1) 0%, rgba(251,174,222,1) 100.7% )"
   },
   "@keyframes fadeIn": {
     "0%,100%": {
