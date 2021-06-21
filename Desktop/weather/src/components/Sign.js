@@ -65,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "3% 5% 5% 5%"
   },
   underline: {
-    color: "green",
+    color: "linear-gradient( 67.2deg,  rgba(37,208,199,1) -7.5%, rgba(165,90,240,1) 62.7% )",
     borderWidth: "1px",
     borderColor: "yellow !important",
   },
@@ -92,7 +92,7 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     fontWeight: "600",
     "&:hover": {
-      backgroundColor: "green",
+      backgroundColor: "linear-gradient( 67.2deg,  rgba(37,208,199,1) -7.5%, rgba(165,90,240,1) 62.7% )",
     },
   },
   box1: {
