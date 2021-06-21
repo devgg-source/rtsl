@@ -30,7 +30,7 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: "100vh",
+    height: "100vh"
   },
   image: {
     backgroundImage:
@@ -51,16 +51,16 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: "center",
   },
   paper: {
-    // margin: theme.spacing(20, 20),
-    padding: "80px",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     height: "auto",
-    margin: "80px",
     position: "relative",
     borderRadius: "15px",
-    justifyContents: "center",
+    height: "auto",
+    margin: "10% 20% 10% 20%",
+    display: "flex",
+    padding: "3% 5% 5% 5%"
   },
   underline: {
     color: "green",
@@ -115,7 +115,7 @@ const useStyles = makeStyles((theme) => ({
     minHeight: 420,
   },
   color: {
-    backgroundColor: "lightblue",
+    backgroundImage:  "linear-gradient(293.5deg , rgba(181,149,208,1) 3.2%, rgba(251,148,207,1) 9.9%, rgba(181,149,208,1) 22.9%, rgba(251,148,207,1) 36.4%, rgba(181,149,208,1) 50.1%, rgba(251,148,207,1) 61.1%, rgba(181,149,208,1) 71.2%, rgba(251,148,207,1) 84.2%, rgba(181,149,208,1) 92.2% )"
   },
   "@keyframes fadeIn": {
     "0%,100%": {
@@ -144,7 +144,7 @@ export default function Signin() {
       <CssBaseline />
       <Grid item xs={false} sm={4} md={6} className={classes.img}>
         <div className={classes.selector}>
-          <img src="https://amchealthgroup.com/wp-content/uploads/2020/01/anfas-logo.png" />
+          <img src="/anfas/anfas-logo.png" />
         </div>
       </Grid>
 
