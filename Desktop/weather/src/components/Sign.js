@@ -20,9 +20,15 @@ import {
   InputLabel,
 } from "@material-ui/core";
 import rtsl from "../Images/rtsl1.svg";
-import rtsl1 from "../Images/anfas_logo.png";
+import rtsl1 from "../Images/anfas-logo.png";
 
 const useStyles = makeStyles((theme) => ({
+  check: {
+    '& > *': {
+      margin: theme.spacing(1),
+      width: '25ch',
+    },
+  },
   root: {
     height: "100vh",
     backgroundImage:
@@ -165,7 +171,14 @@ export default function Signin() {
           <Typography variant="body1" className={classes.text}>
             Enter Your Crenditials to Continue
           </Typography>
+
+          <form className={classes.check} noValidate autoComplete="off">
+      <TextField id="standard-basic" label="Standard" />
+      <TextField id="filled-basic" label="Filled" variant="filled" />
+      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+    </form>
           <form className={classes.form} noValidate>
+
             <FormControl fullWidth className={classes.inpt}>
               <InputLabel
                 htmlFor="my-input"
