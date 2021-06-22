@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     //   "radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,229,168,1) 0%, rgba(251,174,222,1) 100.7% )",
   },
   image: {
-    backgroundImage: `url(${rtsl1})`,
+    // backgroundImage: `url(${rtsl1})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center",
