@@ -12,12 +12,15 @@ import Grid from "@material-ui/core/Grid";
 // import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-// import VisibilityIcon from "@material-ui/icons/Visibility";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import {
   Divider,
-  OutlinedInput,
   FormControl,
+  OutlinedInput,
   InputLabel,
+  InputAdornment,
+  IconButton,
 } from "@material-ui/core";
 import rtsl from "../Images/rtsl1.svg";
 import rtsl1 from "../Images/anfas_logo.png";
@@ -70,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "none",
     cursor: "pointer",
     marginTop: "7px",
-    color: "#0000ee",
+    color: "#039be5",
   },
 
   avatar: {
@@ -100,17 +103,6 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
     order: 2,
   },
-  textField: {
-    [`& fieldset`]: {
-      border: "none",
-      margin: "10px",
-      fontSize: "100px",
-    },
-    color: "grey",
-  },
-  someTextField: {
-    minHeight: 420,
-  },
   "@keyframes fadeIn": {
     "0%,100%": {
       transform: "translateY(5rem)",
@@ -125,7 +117,7 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     height: "auto",
     width: "300px",
-    marginTop: "120px",
+    marginTop: "25%",
     alignItems: "center",
   },
   inpt: {
@@ -141,7 +133,7 @@ export default function Signin() {
       <CssBaseline />
       <Grid item xs={false} sm={4} md={6} className={classes.img}>
         <div className={classes.selector}>
-          <img src={rtsl1} alt="anfas-logo" />
+          <img src={rtsl1} style={{ width: "95%" }} alt="anfas-logo" />
         </div>
       </Grid>
 
@@ -167,37 +159,38 @@ export default function Signin() {
           </Typography>
           <form className={classes.form} noValidate>
             <FormControl fullWidth className={classes.inpt}>
-              <InputLabel
-                htmlFor="my-input"
-                style={{ margin: "0.2rem 0.5rem" }}
-                color="secondary"
-              >
-                Email address
-              </InputLabel>
-              <OutlinedInput
+              <TextField
                 fullWidth
+                variant="outlined"
+                label="Email"
                 type="email"
-                style={{ padding: "0px 8px", borderRadius: "12px" }}
-                color="secondary"
               />
             </FormControl>
-
-            <FormControl fullWidth className={classes.inpt}>
-              <InputLabel
-                htmlFor="my-input"
-                style={{ margin: "0.2rem 0.5rem" }}
-                color="secondary"
-              >
+            <FormControl
+              //   className={clsx(classes.margin, classes.textField)}
+              variant="outlined"
+            >
+              <InputLabel htmlFor="outlined-adornment-password">
                 Password
               </InputLabel>
               <OutlinedInput
-                fullWidth
-                type="password"
-                color="secondary"
-                style={{
-                  padding: "0px 8px",
-                  borderRadius: "12px",
-                }}
+                id="outlined-adornment-password"
+                type={values.showPassword ? "text" : "password"}
+                value={values.password}
+                onChange={handleChange("password")}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+                labelWidth={70}
               />
             </FormControl>
 
@@ -231,7 +224,7 @@ export default function Signin() {
             light
             style={{ color: "grey", width: "100%" }}
           />
-          <Link className={classes.link} variant="body1">
+          <Link className={classes.link} variant="body1" color="primary">
             Don't have an account?
           </Link>
         </div>
