@@ -30,11 +30,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   root: {
-    height: "100vh",
-    backgroundImage:
-      "linear-gradient(90deg, rgba(245,210,75,1) 40%, rgba(0,212,255,1) 100%)",
-    //   "linear-gradient(90deg, rgba(190,3,238,1) 43%, rgba(0,212,255,1) 100%)",
-    //   "radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,229,168,1) 0%, rgba(251,174,222,1) 100.7% )",
+    backgroundImage: "radial-gradient( circle farthest-corner at 10% 20%, rgba(255,229,168,1) 0%, #ED4264 100.7% )"
+    // "linear-gradient(to right, #8f94fb, #4e54c8)"
+    //   //"linear-gradient(90deg, rgba(245,210,75,1) 40%, rgba(0,212,255,1) 100%)",
+    // //   "linear-gradient(90deg, rgba(190,3,238,1) 43%, rgba(0,212,255,1) 100%)",
+       //"radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,229,168,1) 0%, rgba(251,174,222,1) 100.7% )",
   },
   image: {
     // backgroundImage: `url(${rtsl1})`,
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: `url(${rtsl})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-    backgroundPosition: "center",
+    backgroundPosition: "center"
   },
   paper: {
     display: "flex",
@@ -61,6 +61,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "15px",
     margin: "10% 20% 10% 20%",
     padding: "3% 5% 5% 5%",
+    backgroundImage: "linear-gradient(to right, #FFFFFF, #FFEFBA)"
   },
   underline: {
     color:
@@ -127,16 +128,25 @@ const useStyles = makeStyles((theme) => ({
   },
   selector: {
     animation: "$fadeIn 10s ease infinite",
-    margin: "auto",
+    marginLeft: "25%",
     position: "relative",
     height: "auto",
-    width: "300px",
-    marginTop: "120px",
+    width: "auto",
     alignItems: "center",
+    marginTop : "%10"
   },
   inpt: {
     margin: "8px 0",
   },
+  projectDiv :{
+    animation: "$fadeIn 10s ease infinite",
+    textAlign : "center",
+    color : "#651fff"
+  },
+  productMoto :{
+    marginTop : "-3%"
+  }
+
 }));
 
 export default function Signin() {
@@ -148,6 +158,10 @@ export default function Signin() {
       <Grid item xs={false} sm={4} md={6} className={classes.img}>
         <div className={classes.selector}>
           <img src={rtsl1} alt="anfas-logo" />
+        </div>
+        <div className={classes.projectDiv}>
+          <h1>Smart Hand Sanitizer Monitoring System</h1>
+          <h2 className={classes.productMoto}>For Clean Hands, Safe Hands</h2>
         </div>
       </Grid>
 
@@ -171,12 +185,6 @@ export default function Signin() {
           <Typography variant="body1" className={classes.text}>
             Enter Your Crenditials to Continue
           </Typography>
-
-          <form className={classes.check} noValidate autoComplete="off">
-      <TextField id="standard-basic" label="Standard" />
-      <TextField id="filled-basic" label="Filled" variant="filled" />
-      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
-    </form>
           <form className={classes.form} noValidate>
 
             <FormControl fullWidth className={classes.inpt}>
