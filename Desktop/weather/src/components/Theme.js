@@ -1,12 +1,12 @@
 import { createMuiTheme } from "@material-ui/core";
-import { lightGreen } from "@material-ui/core/colors";
+import { lightGreen,deepPurple } from "@material-ui/core/colors";
 
 export const theme = createMuiTheme({
   palette: {
     primary: {
       main: "#32cd32",
     },
-    secondary: lightGreen,
+    secondary:deepPurple ,
   },
   typography: {
     fontFamily:
