@@ -12,33 +12,27 @@ import Grid from "@material-ui/core/Grid";
 // import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import { Divider } from "@material-ui/core";
+// import VisibilityIcon from "@material-ui/icons/Visibility";
+import {
+  Divider,
+  OutlinedInput,
+  FormControl,
+  InputLabel,
+} from "@material-ui/core";
 import rtsl from "../Images/rtsl1.svg";
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+import rtsl1 from "../Images/anfas_logo.png";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
-    backgroundImage: "radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,229,168,1) 0%, rgba(251,174,222,1) 100.7% )"
-  
+    backgroundImage:
+      "linear-gradient(90deg, rgba(245,210,75,1) 40%, rgba(0,212,255,1) 100%)",
+    //   "linear-gradient(90deg, rgba(190,3,238,1) 43%, rgba(0,212,255,1) 100%)",
+    //   "radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,229,168,1) 0%, rgba(251,174,222,1) 100.7% )",
   },
   image: {
-    backgroundImage:
-      "url('https://amchealthgroup.com/wp-content/uploads/2020/01/anfas-logo.png')",
+    // backgroundImage: `url(${rtsl1})`,
     backgroundRepeat: "no-repeat",
-    backgroundColor: "yellow",
     backgroundSize: "cover",
     backgroundPosition: "center",
     // maxWidth: "100%",
@@ -59,13 +53,12 @@ const useStyles = makeStyles((theme) => ({
     height: "auto",
     position: "relative",
     borderRadius: "15px",
-    height: "auto",
     margin: "10% 20% 10% 20%",
-    display: "flex",
-    padding: "3% 5% 5% 5%"
+    padding: "3% 5% 5% 5%",
   },
   underline: {
-    color: "linear-gradient( 67.2deg,  rgba(37,208,199,1) -7.5%, rgba(165,90,240,1) 62.7% )",
+    color:
+      "linear-gradient( 67.2deg,  rgba(37,208,199,1) -7.5%, rgba(165,90,240,1) 62.7% )",
     borderWidth: "1px",
     borderColor: "yellow !important",
   },
@@ -76,7 +69,8 @@ const useStyles = makeStyles((theme) => ({
   link: {
     textDecoration: "none",
     cursor: "pointer",
-    marginTop: "5px",
+    marginTop: "7px",
+    color: "#0000ee",
   },
 
   avatar: {
@@ -92,7 +86,8 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     fontWeight: "600",
     "&:hover": {
-      backgroundColor: "linear-gradient( 67.2deg,  rgba(37,208,199,1) -7.5%, rgba(165,90,240,1) 62.7% )",
+      backgroundColor:
+        "linear-gradient( 67.2deg,  rgba(37,208,199,1) -7.5%, rgba(165,90,240,1) 62.7% )",
     },
   },
   box1: {
@@ -133,6 +128,9 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "120px",
     alignItems: "center",
   },
+  inpt: {
+    margin: "8px 0",
+  },
 }));
 
 export default function Signin() {
@@ -143,7 +141,7 @@ export default function Signin() {
       <CssBaseline />
       <Grid item xs={false} sm={4} md={6} className={classes.img}>
         <div className={classes.selector}>
-          <img src="/anfas/anfas-logo.png" />
+          <img src={rtsl1} alt="anfas-logo" />
         </div>
       </Grid>
 
@@ -168,51 +166,44 @@ export default function Signin() {
             Enter Your Crenditials to Continue
           </Typography>
           <form className={classes.form} noValidate>
-            <Box
-              style={{
-                border: "2px solid #32cd32",
-                paddingTop: "10px",
-                borderRadius: "12px",
-              }}
-            >
-              <TextField
-                variant="outlined"
+            <FormControl fullWidth className={classes.inpt}>
+              <InputLabel
+                htmlFor="my-input"
+                style={{ margin: "0.2rem 0.5rem" }}
                 color="secondary"
+              >
+                Email address
+              </InputLabel>
+              <OutlinedInput
                 fullWidth
-                size="small"
-                id="email"
-                label="Email Address/User Name"
-                name="email"
-                autoComplete="email"
-                autoFocus
-                className={classes.textField}
+                type="email"
+                style={{ padding: "0px 8px", borderRadius: "12px" }}
+                color="secondary"
               />
-            </Box>
-            <Box
-              style={{
-                border: "2px solid #32cd32",
-                paddingTop: "10px",
-                borderRadius: "12px",
-                marginTop: "12px",
-              }}
-            >
-              <TextField
-                variant="outlined"
-                size="small"
-                required
+            </FormControl>
+
+            <FormControl fullWidth className={classes.inpt}>
+              <InputLabel
+                htmlFor="my-input"
+                style={{ margin: "0.2rem 0.5rem" }}
+                color="secondary"
+              >
+                Password
+              </InputLabel>
+              <OutlinedInput
                 fullWidth
-                name="password"
-                label="Password"
                 type="password"
-                id="password"
-                autoComplete="current-password"
                 color="secondary"
-                className={classes.textField}
+                style={{
+                  padding: "0px 8px",
+                  borderRadius: "12px",
+                }}
               />
-            </Box>
+            </FormControl>
+
             <Box className={classes.box1}>
               <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
+                control={<Checkbox value="remember" color="secondary" />}
                 label="Remember me"
               />
 
@@ -224,7 +215,7 @@ export default function Signin() {
               type="submit"
               fullWidth
               variant="contained"
-              color="primary"
+              color="secondary"
               className={classes.submit}
             >
               Sign In
@@ -248,3 +239,4 @@ export default function Signin() {
     </Grid>
   );
 }
+
