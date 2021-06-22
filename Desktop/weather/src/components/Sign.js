@@ -12,26 +12,31 @@ import Grid from "@material-ui/core/Grid";
 // import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import Visibility from "@material-ui/icons/Visibility";
-import VisibilityOff from "@material-ui/icons/VisibilityOff";
+// import VisibilityIcon from "@material-ui/icons/Visibility";
 import {
   Divider,
-  FormControl,
   OutlinedInput,
+  FormControl,
   InputLabel,
-  InputAdornment,
-  IconButton,
 } from "@material-ui/core";
 import rtsl from "../Images/rtsl1.svg";
-import rtsl1 from "../Images/anfas_logo.png";
+import rtsl1 from "../Images/anfas-logo.png";
 
 const useStyles = makeStyles((theme) => ({
+  check: {
+    "& > *": {
+      margin: theme.spacing(1),
+      width: "25ch",
+    },
+  },
   root: {
     height: "100vh",
     backgroundImage:
-      "linear-gradient(90deg, rgba(245,210,75,1) 40%, rgba(0,212,255,1) 100%)",
-    //   "linear-gradient(90deg, rgba(190,3,238,1) 43%, rgba(0,212,255,1) 100%)",
-    //   "radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,229,168,1) 0%, rgba(251,174,222,1) 100.7% )",
+      "radial-gradient( circle farthest-corner at 10% 20%, rgba(255,229,168,1) 0%, #ED4264 100.7% )",
+    // "linear-gradient(to right, #8f94fb, #4e54c8)"
+    //   //"linear-gradient(90deg, rgba(245,210,75,1) 40%, rgba(0,212,255,1) 100%)",
+    // //   "linear-gradient(90deg, rgba(190,3,238,1) 43%, rgba(0,212,255,1) 100%)",
+    //"radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,229,168,1) 0%, rgba(251,174,222,1) 100.7% )",
   },
   image: {
     // backgroundImage: `url(${rtsl1})`,
@@ -58,6 +63,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "15px",
     margin: "10% 20% 10% 20%",
     padding: "3% 5% 5% 5%",
+    backgroundImage: "linear-gradient(to right, #FFFFFF, #FFEFBA)",
   },
   underline: {
     color:
@@ -73,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "none",
     cursor: "pointer",
     marginTop: "7px",
-    color: "#039be5",
+    color: "#0000ee",
   },
 
   avatar: {
@@ -113,15 +119,23 @@ const useStyles = makeStyles((theme) => ({
   },
   selector: {
     animation: "$fadeIn 10s ease infinite",
-    margin: "auto",
+    marginLeft: "25%",
     position: "relative",
     height: "auto",
-    width: "300px",
-    marginTop: "25%",
+    width: "auto",
     alignItems: "center",
+    marginTop: "%10",
   },
   inpt: {
     margin: "8px 0",
+  },
+  projectDiv: {
+    animation: "$fadeIn 10s ease infinite",
+    textAlign: "center",
+    color: "#83764c",
+  },
+  productMoto: {
+    color: "#83764c",
   },
 }));
 
@@ -133,7 +147,15 @@ export default function Signin() {
       <CssBaseline />
       <Grid item xs={false} sm={4} md={6} className={classes.img}>
         <div className={classes.selector}>
-          <img src={rtsl1} style={{ width: "95%" }} alt="anfas-logo" />
+          <img src={rtsl1} alt="anfas-logo" />
+        </div>
+        <div className={classes.projectDiv}>
+          <Typography variant="h4">
+            Smart Hand Sanitizer Monitoring System
+          </Typography>
+          <Typography variant="h5" className={classes.productMoto}>
+            For Clean Hands, Safe Hands
+          </Typography>
         </div>
       </Grid>
 
@@ -160,37 +182,21 @@ export default function Signin() {
           <form className={classes.form} noValidate>
             <FormControl fullWidth className={classes.inpt}>
               <TextField
-                fullWidth
                 variant="outlined"
+                fullWidth
                 label="Email"
+                color="secondary"
                 type="email"
               />
             </FormControl>
-            <FormControl
-              //   className={clsx(classes.margin, classes.textField)}
-              variant="outlined"
-            >
-              <InputLabel htmlFor="outlined-adornment-password">
-                Password
-              </InputLabel>
-              <OutlinedInput
-                id="outlined-adornment-password"
-                type={values.showPassword ? "text" : "password"}
-                value={values.password}
-                onChange={handleChange("password")}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onClick={handleClickShowPassword}
-                      onMouseDown={handleMouseDownPassword}
-                      edge="end"
-                    >
-                      {values.showPassword ? <Visibility /> : <VisibilityOff />}
-                    </IconButton>
-                  </InputAdornment>
-                }
-                labelWidth={70}
+
+            <FormControl fullWidth className={classes.inpt}>
+              <TextField
+                variant="outlined"
+                fullWidth
+                label="Password"
+                color="secondary"
+                type="password"
               />
             </FormControl>
 
@@ -200,7 +206,11 @@ export default function Signin() {
                 label="Remember me"
               />
 
-              <Typography variant="body2" className={classes.link1}>
+              <Typography
+                variant="body2"
+                color="secondary"
+                className={classes.link1}
+              >
                 Forget Password?
               </Typography>
             </Box>
