@@ -30,7 +30,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   root: {
-    backgroundImage: "radial-gradient( circle farthest-corner at 10% 20%, rgba(255,229,168,1) 0%, #ED4264 100.7% )"
+    backgroundImage: "linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%)" 
+    //"radial-gradient( circle farthest-corner at 10% 20%, rgba(255,229,168,1) 0%, #ED4264 100.7% )"
     // "linear-gradient(to right, #8f94fb, #4e54c8)"
     //   //"linear-gradient(90deg, rgba(245,210,75,1) 40%, rgba(0,212,255,1) 100%)",
     // //   "linear-gradient(90deg, rgba(190,3,238,1) 43%, rgba(0,212,255,1) 100%)",
@@ -127,21 +128,21 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   selector: {
-    animation: "$fadeIn 10s ease infinite",
+    animation: "$fadeIn 20s ease infinite",
     marginLeft: "25%",
     position: "relative",
     height: "auto",
     width: "auto",
     alignItems: "center",
-    marginTop : "%10"
+    marginTop : "8%"
   },
   inpt: {
     margin: "8px 0",
   },
   projectDiv :{
-    animation: "$fadeIn 10s ease infinite",
-    textAlign : "center",
-    color : "#651fff"
+    animation: "$fadeIn 20s ease infinite",
+    textAlign : "center"
+ //   color : "#651fff"
   },
   productMoto :{
     marginTop : "-3%"
