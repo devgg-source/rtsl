@@ -72,17 +72,18 @@ const Navbar = () => {
                 alt="logo"
               />
             </Box>
-            <Button
+            <ButtonBase
               size="small"
               style={{
                 borderRadius: "12px",
                 height: "40px",
+                width: "40px",
                 margin: "auto",
                 background: "rgba(3,169,244,0.2)",
               }}
             >
               <MenuIcon style={{ fontSize: "2rem" }} color="primary" />
-            </Button>
+            </ButtonBase>
           </div>
           <Chip
             style={{
