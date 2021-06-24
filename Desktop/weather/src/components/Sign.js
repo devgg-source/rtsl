@@ -24,18 +24,14 @@ import rtsl1 from "../Images/anfas-logo.png";
 
 const useStyles = makeStyles((theme) => ({
   check: {
-    '& > *': {
+    "& > *": {
       margin: theme.spacing(1),
-      width: '25ch',
+      width: "25ch",
     },
   },
   root: {
-    backgroundImage: "linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%)" 
-    //"radial-gradient( circle farthest-corner at 10% 20%, rgba(255,229,168,1) 0%, #ED4264 100.7% )"
-    // "linear-gradient(to right, #8f94fb, #4e54c8)"
-    //   //"linear-gradient(90deg, rgba(245,210,75,1) 40%, rgba(0,212,255,1) 100%)",
-    // //   "linear-gradient(90deg, rgba(190,3,238,1) 43%, rgba(0,212,255,1) 100%)",
-       //"radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,229,168,1) 0%, rgba(251,174,222,1) 100.7% )",
+    backgroundImage: "linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%)",
+    height: "100vh" 
   },
   image: {
     // backgroundImage: `url(${rtsl1})`,
@@ -51,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: `url(${rtsl})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-    backgroundPosition: "center"
+    backgroundPosition: "center",
   },
   paper: {
     display: "flex",
@@ -62,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "15px",
     margin: "10% 20% 10% 20%",
     padding: "3% 5% 5% 5%",
-    backgroundImage: "linear-gradient(to right, #FFFFFF, #FFEFBA)"
+    backgroundImage: "linear-gradient(to right, #FFFFFF, #FFEFBA)",
   },
   underline: {
     color:
@@ -108,17 +104,6 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
     order: 2,
   },
-  textField: {
-    [`& fieldset`]: {
-      border: "none",
-      margin: "10px",
-      fontSize: "100px",
-    },
-    color: "grey",
-  },
-  someTextField: {
-    minHeight: 420,
-  },
   "@keyframes fadeIn": {
     "0%,100%": {
       transform: "translateY(5rem)",
@@ -139,15 +124,14 @@ const useStyles = makeStyles((theme) => ({
   inpt: {
     margin: "8px 0",
   },
-  projectDiv :{
+  projectDiv: {
     animation: "$fadeIn 20s ease infinite",
-    textAlign : "center"
- //   color : "#651fff"
+    textAlign: "center",
+    color: "#83764c",
   },
-  productMoto :{
-    marginTop : "-3%"
-  }
-
+  productMoto: {
+    color: "#83764c",
+  },
 }));
 
 export default function Signin() {
@@ -161,8 +145,12 @@ export default function Signin() {
           <img src={rtsl1} alt="anfas-logo" />
         </div>
         <div className={classes.projectDiv}>
-          <h1>Smart Hand Sanitizer Monitoring System</h1>
-          <h2 className={classes.productMoto}>For Clean Hands, Safe Hands</h2>
+          <Typography variant="h4">
+            Smart Hand Sanitizer Monitoring System
+          </Typography>
+          <Typography variant="h5" className={classes.productMoto}>
+            For Clean Hands, Safe Hands
+          </Typography>
         </div>
       </Grid>
 
@@ -187,39 +175,23 @@ export default function Signin() {
             Enter Your Crenditials to Continue
           </Typography>
           <form className={classes.form} noValidate>
-
             <FormControl fullWidth className={classes.inpt}>
-              <InputLabel
-                htmlFor="my-input"
-                style={{ margin: "0.2rem 0.5rem" }}
-                color="secondary"
-              >
-                Email address
-              </InputLabel>
-              <OutlinedInput
+              <TextField
+                variant="outlined"
                 fullWidth
-                type="email"
-                style={{ padding: "0px 8px", borderRadius: "12px" }}
+                label="Email"
                 color="secondary"
+                type="email"
               />
             </FormControl>
 
             <FormControl fullWidth className={classes.inpt}>
-              <InputLabel
-                htmlFor="my-input"
-                style={{ margin: "0.2rem 0.5rem" }}
-                color="secondary"
-              >
-                Password
-              </InputLabel>
-              <OutlinedInput
+              <TextField
+                variant="outlined"
                 fullWidth
-                type="password"
+                label="Password"
                 color="secondary"
-                style={{
-                  padding: "0px 8px",
-                  borderRadius: "12px",
-                }}
+                type="password"
               />
             </FormControl>
 
@@ -229,7 +201,11 @@ export default function Signin() {
                 label="Remember me"
               />
 
-              <Typography variant="body2" className={classes.link1}>
+              <Typography
+                variant="body2"
+                color="secondary"
+                className={classes.link1}
+              >
                 Forget Password?
               </Typography>
             </Box>
@@ -253,7 +229,7 @@ export default function Signin() {
             light
             style={{ color: "grey", width: "100%" }}
           />
-          <Link className={classes.link} variant="body1">
+          <Link className={classes.link} variant="body1" color="primary">
             Don't have an account?
           </Link>
         </div>
@@ -261,4 +237,3 @@ export default function Signin() {
     </Grid>
   );
 }
-
