@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: drawerWidth,
-    marginTop: "80px",
+    // marginTop: "80px",
     overflowY: "scroll",
   },
   drawerHeader: {
@@ -76,6 +76,9 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
     marginLeft: 0,
+  },
+  list: {
+    marginTop: "90px",
   },
 }));
 
@@ -106,7 +109,7 @@ export default function PersistentDrawerLeft(props) {
         }}
       >
         <Divider />
-        <List>
+        <List className={classes.list}>
           {[
             "Inbox",
             "Starred",

@@ -20,8 +20,6 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/Inbox";
-import DraftsIcon from "@material-ui/icons/Drafts";
 import Divider from "@material-ui/core/Divider";
 import ExitToAppRoundedIcon from "@material-ui/icons/ExitToAppRounded";
 // import ListItemLink from "@material-ui/core/ListItemLink";
