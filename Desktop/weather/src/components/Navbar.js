@@ -1,4 +1,5 @@
 import React from "react";
+import Sidenav from "./Sidenav";
 import AppBar from "@material-ui/core/AppBar";
 import {
   Avatar,
@@ -19,8 +20,6 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/Inbox";
-import DraftsIcon from "@material-ui/icons/Drafts";
 import Divider from "@material-ui/core/Divider";
 import ExitToAppRoundedIcon from "@material-ui/icons/ExitToAppRounded";
 // import ListItemLink from "@material-ui/core/ListItemLink";
@@ -32,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
   header: {
     height: "83.3px",
     backgroundColor: "white",
+    zIndex: 2000,
   },
   toolbar: {
     padding: "16px",
@@ -57,8 +57,13 @@ const Navbar = () => {
   const classes = useStyles();
   const [value, setValue] = React.useState([null, null]);
   const [none, setNone] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
   const handleClick = () => {
     setNone(!none);
+  };
+  console.log(open);
+  const handleOpen = () => {
+    setOpen(!open);
   };
   return (
     <div>
@@ -81,6 +86,7 @@ const Navbar = () => {
                 margin: "auto",
                 background: "rgba(3,169,244,0.2)",
               }}
+              onClick={() => setOpen(!open)}
             >
               <MenuIcon style={{ fontSize: "2rem" }} color="primary" />
             </ButtonBase>
@@ -157,6 +163,7 @@ const Navbar = () => {
           </Collapse>
         </div>
       </AppBar>
+      <Sidenav open={open} />
     </div>
   );
 };
