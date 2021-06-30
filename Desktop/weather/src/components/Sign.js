@@ -23,9 +23,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   root: {
+    backgroundImage: "linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%)",
     height: "100vh",
-    backgroundImage:
-      "radial-gradient( circle farthest-corner at 10% 20%, rgba(255,229,168,1) 0%, #ED4264 100.7% )",
   },
   image: {
     backgroundRepeat: "no-repeat",
@@ -104,19 +103,19 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   selector: {
-    animation: "$fadeIn 10s ease infinite",
+    animation: "$fadeIn 20s ease infinite",
     marginLeft: "25%",
     position: "relative",
     height: "auto",
     width: "auto",
     alignItems: "center",
-    marginTop: "%10",
+    marginTop: "8%",
   },
   inpt: {
     margin: "8px 0",
   },
   projectDiv: {
-    animation: "$fadeIn 10s ease infinite",
+    animation: "$fadeIn 20s ease infinite",
     textAlign: "center",
     color: "#83764c",
   },
