@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import Sidenav from "./Sidenav";
 import AppBar from "@material-ui/core/AppBar";
 import {
   Avatar,
   Box,
-  Button,
   ButtonBase,
   Chip,
-  Collapse,
+  Grow,
+  OutlinedInput,
   Paper,
   Toolbar,
   Typography,
@@ -22,10 +22,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
 import ExitToAppRoundedIcon from "@material-ui/icons/ExitToAppRounded";
-// import ListItemLink from "@material-ui/core/ListItemLink";
-// import AdapterDateFns from "@material-ui/lab/AdapterDateFns";
-// import LocalizationProvider from "@material-ui/lab/LocalizationProvider";
-// import DateRangePicker from "@material-ui/lab/DateRangePicker";
+import Search from "@material-ui/icons/Search";
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -36,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
   toolbar: {
     padding: "16px",
   },
+
   img: {
     display: "flex",
   },
@@ -47,8 +45,43 @@ const useStyles = makeStyles((theme) => ({
   account: {
     color: "rgb(97,97,97)",
     borderRadius: "12px",
+
     "&:hover": {
       background: "rgba(3,169,244,0.2)",
+      color: "rgb(3,169,244)",
+      "& $listItemIcon": {
+        "& $iconsize": {
+          color: "rgb(3,169,244)",
+        },
+      },
+    },
+  },
+  listItemText: {
+    marginLeft: "-15px",
+  },
+  listItemIcon: () => ({}),
+  iconsize: () => ({
+    fontSize: "20px",
+  }),
+  search: {
+    width: "320px",
+    borderRadius: "12px",
+    marginLeft: "50px",
+    "& input": {
+      marginLeft: "10px",
+    },
+  },
+  navBtn: {
+    borderRadius: "12px",
+    height: "40px",
+    width: "40px",
+    margin: "auto",
+    background: "rgba(3,169,244,0.2)",
+    color: "rgb(3,169,244)",
+    transition: "all .5s ease",
+    "&:hover": {
+      background: "rgb(3,169,244)",
+      color: "rgb(255,255,255,0.9)",
     },
   },
 }));
@@ -61,10 +94,30 @@ const Navbar = () => {
   const handleClick = () => {
     setNone(!none);
   };
-  console.log(open);
-  const handleOpen = () => {
-    setOpen(!open);
-  };
+
+  function useOutsideAlerter(ref) {
+    useEffect(() => {
+      /**
+       * Alert if clicked on outside of element
+       */
+      function handleClickOutside(event) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setNone(false);
+        }
+      }
+
+      // Bind the event listener
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        // Unbind the event listener on clean up
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [ref]);
+  }
+
+  const accRef = useRef(null);
+  useOutsideAlerter(accRef);
+
   return (
     <div>
       <AppBar elevation={0} className={classes.header}>
@@ -79,18 +132,28 @@ const Navbar = () => {
             </Box>
             <ButtonBase
               size="small"
-              style={{
-                borderRadius: "12px",
-                height: "40px",
-                width: "40px",
-                margin: "auto",
-                background: "rgba(3,169,244,0.2)",
-              }}
+              className={classes.navBtn}
               onClick={() => setOpen(!open)}
             >
-              <MenuIcon style={{ fontSize: "2rem" }} color="primary" />
+              <MenuIcon style={{ fontSize: "2rem" }} />
             </ButtonBase>
           </div>
+          <Box>
+            <OutlinedInput
+              fullWidth
+              placeholder="Search"
+              className={classes.search}
+              startAdornment={
+                <Search
+                  style={{
+                    fontSize: "18px",
+                    color: "grey",
+                    fontWeight: "lighter",
+                  }}
+                />
+              }
+            />
+          </Box>
           <Chip
             style={{
               padding: "8px",
@@ -119,13 +182,14 @@ const Navbar = () => {
                   width: "1.5rem",
                   height: "1.5rem",
                   background: "transparent !important",
-                  margin: "8px -4px 8px 0px",
+                  margin: "13px -4px 8px 0px",
                 }}
                 color="primary"
               />
             }
             variant="outlined"
             onClick={handleClick}
+            ref={accRef}
           />
         </Toolbar>
         <div
@@ -136,7 +200,7 @@ const Navbar = () => {
             display: `${!none ? "none" : "block"}`,
           }}
         >
-          <Collapse in={none}>
+          <Grow in={none} timeout={(500, 700)}>
             <Paper
               elevation={4}
               style={{ borderRadius: "12px", padding: "12px" }}
@@ -147,20 +211,26 @@ const Navbar = () => {
               <Divider />
               <List component="nav" aria-label="account settings">
                 <ListItem button className={classes.account}>
-                  <ListItemIcon>
-                    <Settings color="primary" />
+                  <ListItemIcon className={classes.listItemIcon}>
+                    <Settings className={classes.iconsize} />
                   </ListItemIcon>
-                  <ListItemText primary="Account Settings" />
+                  <ListItemText
+                    primary="Account Settings"
+                    className={classes.listItemText}
+                  />
                 </ListItem>
                 <ListItem button className={classes.account}>
-                  <ListItemIcon>
-                    <ExitToAppRoundedIcon color="primary" />
+                  <ListItemIcon className={classes.listItemIcon}>
+                    <ExitToAppRoundedIcon className={classes.iconsize} />
                   </ListItemIcon>
-                  <ListItemText primary="Logout" />
+                  <ListItemText
+                    primary="Logout"
+                    className={classes.listItemText}
+                  />
                 </ListItem>
               </List>
             </Paper>
-          </Collapse>
+          </Grow>
         </div>
       </AppBar>
       <Sidenav open={open} />

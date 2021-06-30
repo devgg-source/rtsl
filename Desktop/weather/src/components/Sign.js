@@ -9,16 +9,9 @@ import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
-// import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-// import VisibilityIcon from "@material-ui/icons/Visibility";
-import {
-  Divider,
-  OutlinedInput,
-  FormControl,
-  InputLabel,
-} from "@material-ui/core";
+import { Divider, FormControl } from "@material-ui/core";
 import rtsl from "../Images/rtsl1.svg";
 import rtsl1 from "../Images/anfas-logo.png";
 
@@ -33,18 +26,11 @@ const useStyles = makeStyles((theme) => ({
     height: "100vh",
     backgroundImage:
       "radial-gradient( circle farthest-corner at 10% 20%, rgba(255,229,168,1) 0%, #ED4264 100.7% )",
-    // "linear-gradient(to right, #8f94fb, #4e54c8)"
-    //   //"linear-gradient(90deg, rgba(245,210,75,1) 40%, rgba(0,212,255,1) 100%)",
-    // //   "linear-gradient(90deg, rgba(190,3,238,1) 43%, rgba(0,212,255,1) 100%)",
-    //"radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,229,168,1) 0%, rgba(251,174,222,1) 100.7% )",
   },
   image: {
-    // backgroundImage: `url(${rtsl1})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center",
-    // maxWidth: "100%",
-    // maxHeight: "100%",
     margin: "200px 0 200px",
     zindex: 1,
   },
