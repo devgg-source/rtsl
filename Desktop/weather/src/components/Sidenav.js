@@ -22,6 +22,7 @@ const drawerWidth = 260;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
+    background: "white",
   },
   appBar: {
     transition: theme.transitions.create(["margin", "width"], {
@@ -61,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     border: "none",
     // height: "calc(100%-190px)",
     "&::-webkit-scrollbar": {
-      width: "0.4em",
+      width: "0.5em",
     },
     "&::-webkit-scrollbar-track": {
       boxShadow: "inset 0 0 6px rgba(0,0,0,0.00)",
@@ -69,9 +70,12 @@ const useStyles = makeStyles((theme) => ({
       webkitBoxShadow: "inset 0 0 6px rgba(0,0,0,0.00)",
       borderRadius: "12px",
     },
-    "&::-webkit-scrollbar-thumb": {
-      backgroundColor: "rgba(0,0,0,.1)",
-      //   outline: "1px solid slategrey",
+    "&:hover": {
+      "&::-webkit-scrollbar-thumb": {
+        backgroundColor: "rgba(0,0,0,.2)",
+        height: "30%",
+        borderRadius: "12px",
+      },
     },
     "&::-webkit-scrollbar-track-piece:start": {
       marginTop: "84px",
@@ -264,12 +268,7 @@ export default function PersistentDrawerLeft(props) {
                       </Collapse>
                     </div>
                   ) : (
-                    <ListItem
-                      button
-                      className={classes.nested}
-                      className={classes.listText}
-                      key={index}
-                    >
+                    <ListItem button className={classes.listText} key={index}>
                       <ListItemIcon className={classes.listItemIcon}>
                         <StarBorder className={classes.iconsize} />
                       </ListItemIcon>
