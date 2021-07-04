@@ -7,7 +7,6 @@ import {
   ButtonBase,
   Chip,
   Grow,
-  OutlinedInput,
   Paper,
   Toolbar,
   Typography,
@@ -22,7 +21,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
 import ExitToAppRoundedIcon from "@material-ui/icons/ExitToAppRounded";
-import Search from "@material-ui/icons/Search";
+import Search from "./Search";
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -42,6 +41,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "1.2em",
     color: "red",
   },
+  // search: {
+  //   marginLeft: "20px",
+  // },
   account: {
     color: "rgb(97,97,97)",
     borderRadius: "12px",
@@ -63,14 +65,7 @@ const useStyles = makeStyles((theme) => ({
   iconsize: () => ({
     fontSize: "20px",
   }),
-  search: {
-    width: "320px",
-    borderRadius: "12px",
-    marginLeft: "50px",
-    "& input": {
-      marginLeft: "10px",
-    },
-  },
+
   navBtn: {
     borderRadius: "12px",
     height: "40px",
@@ -117,6 +112,9 @@ const Navbar = () => {
 
   const accRef = useRef(null);
   useOutsideAlerter(accRef);
+  const style = {
+    marginLeft: "20px",
+  };
 
   return (
     <div>
@@ -138,22 +136,7 @@ const Navbar = () => {
               <MenuIcon style={{ fontSize: "2rem" }} />
             </ButtonBase>
           </div>
-          <Box>
-            <OutlinedInput
-              fullWidth
-              placeholder="Search"
-              className={classes.search}
-              startAdornment={
-                <Search
-                  style={{
-                    fontSize: "18px",
-                    color: "grey",
-                    fontWeight: "lighter",
-                  }}
-                />
-              }
-            />
-          </Box>
+          <Search placeholder="Search By Employee" style={style} comp="Nav" />
           <Chip
             style={{
               padding: "8px",

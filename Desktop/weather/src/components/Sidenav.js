@@ -16,6 +16,7 @@ import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import StarBorder from "@material-ui/icons/StarBorder";
 import { ListSubheader } from "@material-ui/core";
+// import Table from "./Table";
 
 const drawerWidth = 260;
 
@@ -166,8 +167,10 @@ export default function PersistentDrawerLeft(props) {
       >
         <Divider />
         <List className={classes.list}>
-          <ListSubheader className={classes.subheader}>Dashboard</ListSubheader>
-          {["Default", "Santizer Report"].map((text, index) => (
+          <ListSubheader className={classes.subheader}>
+            Sanitizer Compilant Report
+          </ListSubheader>
+          {["Statistics", "Live Report"].map((text, index) => (
             <ListItem
               justifyContent="center"
               button
@@ -391,6 +394,7 @@ export default function PersistentDrawerLeft(props) {
           eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
           posuere sollicitudin aliquam ultrices sagittis orci a.
         </Typography>
+        {/* <Table /> */}
       </main>
     </div>
   );
