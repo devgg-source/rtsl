@@ -2,6 +2,7 @@ import Sign from "./components/Sign";
 import Navbar from "./components/Navbar";
 import Sidenav from "./components/Sidenav";
 import Table from "./components/Table";
+import DenseTable from "./components/DenseTable";
 import { ThemeProvider } from "@material-ui/core";
 import { theme } from "./components/Theme";
 
@@ -11,8 +12,9 @@ function App() {
       <div className="App">
         {/* <Sign /> */}
 
-        <Navbar />
+        {/* <Navbar /> */}
         {/* <Table /> */}
+        <DenseTable />
       </div>
     </ThemeProvider>
   );
